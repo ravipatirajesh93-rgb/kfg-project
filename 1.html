@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KFC - Order Online</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="logo">KFC</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#offers">Offers</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <button class="cart-button" onclick="openCart()">
+            Cart (<span id="cartNumber">0</span>)
+        </button>
+    </div>
+
+    <!-- HERO SECTION -->
+    <div class="hero" id="home">
+        <div class="hero-text">
+            <h1>It's Finger<br>Lickin' Good.</h1>
+            <p>Order your favourite KFC meals online. Hot and crispy, delivered fast.</p>
+            <button class="order-now" onclick="scrollToMenu()">Order Now</button>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=600" alt="KFC Meal">
+        </div>
+    </div>
+
+    <!-- MENU SECTION -->
+    <div class="menu-section" id="menu">
+        <h2>Our Menu</h2>
+        <p>Choose your favourite item</p>
+
+        <div class="category-buttons">
+            <button class="cat-btn active" onclick="showCategory('All', this)">All</button>
+            <button class="cat-btn" onclick="showCategory('Burgers', this)">Burgers</button>
+            <button class="cat-btn" onclick="showCategory('Buckets', this)">Buckets</button>
+            <button class="cat-btn" onclick="showCategory('Snacks', this)">Snacks</button>
+            <button class="cat-btn" onclick="showCategory('Drinks', this)">Drinks</button>
+        </div>
+
+        <div class="menu-list" id="menuList"></div>
+    </div>
+
+    <!-- OFFERS -->
+    <div class="offers" id="offers">
+        <h2>Special Offers</h2>
+        <div class="offer-boxes">
+            <div class="offer">🎉 Get 20% OFF on first order. Use code: <b>KFC20</b></div>
+            <div class="offer">🍗 Free Pepsi on orders above ₹499</div>
+            <div class="offer">🔥 Buy 1 Get 1 on Zinger Burgers - Today only!</div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer" id="contact">
+        <h3>KFC</h3>
+        <p>© 2025 KFC Clone Project | Made for College Assignment</p>
+    </div>
+
+    <!-- CART SIDEBAR -->
+    <div class="cart-overlay" id="overlay" onclick="closeCart()"></div>
+
+    <div class="cart-box" id="cartBox">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button onclick="closeCart()">✕</button>
+        </div>
+
+        <div class="cart-body" id="cartBody">
+            <p class="empty-cart">Cart is empty</p>
+        </div>
+
+        <div class="cart-total" id="cartTotalBox" style="display:none;">
+            <p>Total: ₹<span id="totalPrice">0</span></p>
+            <button class="checkout-button" onclick="showForm()">Checkout</button>
+        </div>
+
+        <!-- CHECKOUT FORM -->
+        <div class="checkout-form" id="checkoutForm">
+            <label>Name</label>
+            <input type="text" id="customerName" placeholder="Enter your name">
+
+            <label>Phone</label>
+            <input type="text" id="customerPhone" placeholder="10-digit number">
+
+            <label>Address</label>
+            <textarea id="customerAddress" placeholder="Enter delivery address"></textarea>
+
+            <button class="place-order-button" onclick="placeOrder()">Place Order</button>
+            <button class="back-button" onclick="backToCart()">← Back</button>
+        </div>
+    </div>
+
+    <!-- ORDER SUCCESS SCREEN -->
+    <div class="success-box" id="successBox">
+        <div class="tick">✓</div>
+        <h2>Order Placed!</h2>
+        <p id="successMessage">Your order is confirmed.</p>
+        <button onclick="startAgain()">Order Again</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
